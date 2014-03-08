@@ -16,8 +16,8 @@ two:
 	mov al, 0x8
 	int 0x80
 
-	mov ebx,eax
-	push eax
+	xchg ebx,eax
+	push ebx
 	push word 0x3a30
 	mov ecx,esp
 	inc edx
