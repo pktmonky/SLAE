@@ -1,29 +1,12 @@
-/* 
-   compiler is gcc(egcs-2.91.66)
-   flags are -O3 -fomit-frame-pointer -Wall 
-   Processor is 233Mhz Pentium II (Deschutes)
-   OS is Linux 2.2.16
-
-   Max encryption speed I've seen (in mulit-user mode even, although single
-   user mode probably won't save more than a couple clocks):
-
-   encs/sec = 506115.904591
-   bytes/sec = 8097854.473457
-   KB/sec = 7908.061009
-   MB/sec = 7.722716
-   approx clocks/enc (for 233Mhz) = 461.027466
-      
-   I easily beat the best C implementations (the best being MSC @ 600 clocks),
-   so the target is the assembly implementations...
-
-   according to twofish docs, fully tuned *assembly* (in clocks):
-   compiled is 285          (shouldn't be able to do this)  (12.5 MB/sec)
-   full keyed is 315        (if I get to 460, maybe this is possible but 
-                             I *really* doubt it)  (11.3 MB/sec)
-   partially keyed is 460   (I'm *really* close) (7.7 MB/sec)
-   minimal keying is 720    (I've beat this -their C did too) (4.9 MB/sec)
-
-*/
+/* Title: Execve shellcode with Twofish crypter
+ * Author: pktmonky
+ * Description: A C program to decrypt an execve shellcode encrypted
+ * with Twofish. The shellcode and key are customizable. Given that
+ * the shellcode is encrypted with Twofish and the supplied key, the
+ * main function will decrypt and execute the shellcode. The original
+ * source for the C program can be downloaded at
+ * https://www.schneier.com/code/twofish-cpy.zip
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
