@@ -2,6 +2,7 @@
  * Author: pktmonky
  * Description: Shellcode to open a reverse tcp bind shell from a remote host.
  * IP and Port are configurable.
+ * Compile with: gcc -fno-stack-protector -z execstack revshell.c -o revshell
  */
 
 #include<stdio.h>

@@ -6,6 +6,7 @@
  * main function will decrypt and execute the shellcode. The original
  * source for the C program can be downloaded at
  * https://www.schneier.com/code/twofish-cpy.zip
+ * Compile with: gcc -O3 -fomit-frame-pointer -fno-stack-protector -z execstack -Wall 2fish.c -o 2fish
  */
 
 #include <stdio.h>

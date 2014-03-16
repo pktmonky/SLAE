@@ -2,6 +2,7 @@
  * Author: pktmonky
  * Description: Egghunter shellcode to search memory for second stage shellcode.
  * The egg and the second stage shellcode are configurable.
+ * Compile with: gcc -fno-stack-protector -z execstack egg-hunter.c -o egg-hunter
  */
 
 #include<stdio.h>

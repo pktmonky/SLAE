@@ -2,6 +2,7 @@
  * Author: pktmonky
  * Description: This is a basic execve /bin/sh shellcode using a
  * cascading encoder which combimes XOR encoder and Insertion encoder.
+ * Compile with: gcc -fno-stack-protector -z execstack encoder.c -o encoder
  */
 
 

@@ -2,6 +2,7 @@
  * Author: pktmonky
  * Description: Shellcode to create a tcp bind shell on a remote host.
  * Port is configurable.
+ * Compile with: gcc -fno-stack-protector -z execstack bindshell.c -o bindshell
  */
 
 #include<stdio.h>
