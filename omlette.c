@@ -3,7 +3,7 @@
  * Description: Omlette Egghunter shellcode to search memory for second stage
  * shellcode chunks.
  * The egg and the second stage shellcode chunks are configurable.
- * Compile with: gcc -O3 -ftemp -fno-stack-protector -z execstack omlette.c -o omlette
+ * Compile with: gcc -fno-stack-protector -z execstack omlette.c -o omlette
  */
 
 #include<stdio.h>
